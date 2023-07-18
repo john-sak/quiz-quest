@@ -15,17 +15,24 @@ struct SpecialThanksView: View {
             VStack {
                 Spacer()
                 
-                VStack(alignment: .leading, spacing: 10) {
+                VStack(alignment: .center) {
+                    Spacer()
+                    
                     Text("QuizQuest was created in July 2023")
                         .fontWeight(.bold)
-                        .padding(.vertical)
+                        .padding()
                     
-                    Text("This project marks my first iOS app, and I'm thrilled to share it with you.")
-                        .padding(.vertical)
-                    Text("A big shout out to OpenTriviaDB for providing the fantastic questions and answers that make this app engaging.")
-                        .padding(.vertical)
-                    Text("If you enjoyed using the app and would like to connect or explore more of my work, please visit my GitHub. Your feedback and suggestions are always welcome!")
-                        .padding(.vertical)
+                    VStack {
+                        Text("This project marks my first iOS app, and I'm thrilled to share it with you.")
+                            .padding(.top)
+                        Text("A big shout out to OpenTriviaDB for providing the fantastic questions and answers that make this app engaging.")
+                            .padding()
+                        Text("If you enjoyed using the app and would like to connect or explore more of my work, please visit my GitHub. Your feedback and suggestions are always welcome!")
+                            .padding(.bottom)
+                    }
+                    .multilineTextAlignment(.center)
+                                 
+                    Spacer()
                     
                     HStack {
                         Spacer()
@@ -53,8 +60,12 @@ struct SpecialThanksView: View {
                         Spacer()
                     }
                     .padding(.vertical)
+                    
+                    Spacer()
+
                 }
                 .padding(.horizontal, 30.0)
+                .padding(.vertical)
                 
                 Spacer()
                 
