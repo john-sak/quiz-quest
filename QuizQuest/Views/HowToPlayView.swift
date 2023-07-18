@@ -15,30 +15,30 @@ struct HowToPlayView: View {
             VStack {
                 Spacer()
 
-                VStack(alignment: .leading, spacing: 10) {
-                    HStack(alignment: .center) {
+                VStack() {
+                    VStack {
                         Text("🛜")
-                            .padding(.trailing)
+                            .padding(.bottom, 5.0)
                         Text("You need an Internet connection to play the game.")
-                            .multilineTextAlignment(.leading)
+                            .multilineTextAlignment(.center)
                     }
-                    .padding(.vertical)
-                    
-                    HStack(alignment: .center) {
+                    .padding()
+
+                    VStack {
                         Text("🕹️")
-                            .padding(.trailing)
+                            .padding(.bottom, 5.0)
                         Text("Hit \"New Game\", choose the number of questions you want and try to answer as many as you can correctly.")
-                            .multilineTextAlignment(.leading)
+                            .multilineTextAlignment(.center)
                     }
-                    .padding(.vertical)
-                    
-                    HStack(alignment: .center) {
+                    .padding()
+
+                    VStack {
                         Text("💯")
-                            .padding(.trailing)
+                            .padding(.bottom, 5.0)
                         Text("In the end you will be scored, so be careful!")
-                            .multilineTextAlignment(.leading)
+                            .multilineTextAlignment(.center)
                     }
-                    .padding(.vertical)
+                    .padding()
                 }
                 .padding(.horizontal, 50.0)
                 
@@ -49,9 +49,8 @@ struct HowToPlayView: View {
                         self.isShowingThisView.toggle()
                     }
                 }
+                .padding(.bottom, 50.0)
                 .buttonStyle(QQPrimaryButtonStyle())
-                
-                Spacer()
             }
             .navigationTitle("How to Play")
         }

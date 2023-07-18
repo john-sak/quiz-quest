@@ -9,6 +9,7 @@ import SwiftUI
 
 struct StartView: View {
     @State private var isShowingHowToPlayView: Bool = false
+    @State private var isShowingSpecialThanksView: Bool = false
     
     var body: some View {
         VStack {
@@ -30,7 +31,9 @@ struct StartView: View {
             }.buttonStyle(QQSecondaryButtonStyle())
 
             Button("Special Thanks") {
-                print("Special Thanks")
+                withAnimation {
+                    self.isShowingSpecialThanksView.toggle()
+                }
             }.buttonStyle(QQSecondaryButtonStyle())
 
             Spacer()
@@ -38,6 +41,9 @@ struct StartView: View {
         .padding()
         .sheet(isPresented: $isShowingHowToPlayView, content: {
             HowToPlayView(isShowingThisView: $isShowingHowToPlayView)
+        })
+        .sheet(isPresented: $isShowingSpecialThanksView, content: {
+            SpecialThanksView(isShowingThisView: $isShowingSpecialThanksView)
         })
     }
 }
