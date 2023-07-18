@@ -49,9 +49,8 @@ struct HowToPlayView: View {
                         self.isShowingThisView.toggle()
                     }
                 }
+                .padding(.bottom, 50.0)
                 .buttonStyle(QQPrimaryButtonStyle())
-                
-                Spacer()
             }
             .navigationTitle("How to Play")
         }
