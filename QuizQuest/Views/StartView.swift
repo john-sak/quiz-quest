@@ -22,19 +22,23 @@ struct StartView: View {
 
             Button("New Game") {
                 print("New Game")
-            }.buttonStyle(QQPrimaryButtonStyle())
+            }
+            .buttonStyle(QQPrimaryButtonStyle())
+            .padding(.bottom, 5.0)
 
             Button("How to Play") {
                 withAnimation {
                     self.isShowingHowToPlayView.toggle()
                 }
-            }.buttonStyle(QQSecondaryButtonStyle())
+            }
+            .buttonStyle(QQSecondaryButtonStyle())
 
             Button("Special Thanks") {
                 withAnimation {
                     self.isShowingSpecialThanksView.toggle()
                 }
-            }.buttonStyle(QQSecondaryButtonStyle())
+            }
+            .buttonStyle(QQSecondaryButtonStyle())
 
             Spacer()
         }
