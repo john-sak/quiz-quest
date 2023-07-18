@@ -13,41 +13,22 @@ struct StartView: View {
             Image("LaunchScreen")
                 .resizable()
                 .scaledToFit()
-                .padding(.top, -50.0)
-            Text("Welcome to QuizQuest!")
-                .font(.title)
-                .fontWeight(.bold)
-                .multilineTextAlignment(.leading)
-                .padding()
-            Button() {
-                /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
-            } label: {
-                Text("New Game")
-                    .fontWeight(.black)
-            }
-            .buttonStyle(.borderedProminent)
-            .accentColor(Color("AccentColor"))
-            .controlSize(.large)
-            .padding()
-            Button() {
-                /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
-            } label: {
-                Text("How to Play")
-                    .fontWeight(.bold)
-            }
-            .buttonStyle(.bordered)
-            .accentColor(Color("AccentColor"))
-            .controlSize(.large)
-            .padding()
-            Button() {
-                /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
-            } label: {
-                Text("Speacial Thanks")
-            }
-            .buttonStyle(.bordered)
-            .accentColor(Color("AccentColor"))
-            .controlSize(.large)
-            .padding()
+                .padding(.bottom, -100.0)
+
+            Spacer()
+
+            Button("New Game") {
+                print("New Game")
+            }.buttonStyle(QQPrimaryButtonStyle())
+
+            Button("How to Play") {
+                print("How to Play")
+            }.buttonStyle(QQSecondaryButtonStyle())
+
+            Button("Special Thanks") {
+                print("Special Thanks")
+            }.buttonStyle(QQSecondaryButtonStyle())
+
             Spacer()
         }
         .padding()
