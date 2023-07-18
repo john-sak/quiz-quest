@@ -11,7 +11,7 @@
 		F19851D32A657F7B00A48096 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19851D22A657F7B00A48096 /* StartView.swift */; };
 		F19851D52A657F7C00A48096 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F19851D42A657F7C00A48096 /* Assets.xcassets */; };
 		F19851D82A657F7C00A48096 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F19851D72A657F7C00A48096 /* Preview Assets.xcassets */; };
-		F19851DF2A66879B00A48096 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F19851DE2A66879B00A48096 /* Launch Screen.storyboard */; };
+		F19851DF2A66879B00A48096 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F19851DE2A66879B00A48096 /* LaunchScreen.storyboard */; };
 		F19851E32A6694E800A48096 /* QQButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19851E22A6694E800A48096 /* QQButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -21,7 +21,7 @@
 		F19851D22A657F7B00A48096 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		F19851D42A657F7C00A48096 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F19851D72A657F7C00A48096 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		F19851DE2A66879B00A48096 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		F19851DE2A66879B00A48096 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F19851E22A6694E800A48096 /* QQButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QQButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -55,7 +55,7 @@
 		F19851CF2A657F7B00A48096 /* QuizQuest */ = {
 			isa = PBXGroup;
 			children = (
-				F19851DE2A66879B00A48096 /* Launch Screen.storyboard */,
+				F19851DE2A66879B00A48096 /* LaunchScreen.storyboard */,
 				F19851D02A657F7B00A48096 /* QuizQuestApp.swift */,
 				F19851E82A66AD0600A48096 /* Views */,
 				F19851E72A66ACE200A48096 /* Models */,
@@ -147,7 +147,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F19851DF2A66879B00A48096 /* Launch Screen.storyboard in Resources */,
+				F19851DF2A66879B00A48096 /* LaunchScreen.storyboard in Resources */,
 				F19851D82A657F7C00A48096 /* Preview Assets.xcassets in Resources */,
 				F19851D52A657F7C00A48096 /* Assets.xcassets in Resources */,
 			);
@@ -299,7 +299,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -332,7 +332,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
