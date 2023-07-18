@@ -31,7 +31,7 @@ struct QQPrimaryButtonStyle: ButtonStyle {
     }
 }
 
-struct QQSecondaryButtonStyle : ButtonStyle {
+struct QQSecondaryButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .foregroundColor(.accentColor)

@@ -10,8 +10,41 @@ import SwiftUI
 struct NewGameView: View {
     @Binding var isShowingThisView: Bool
     
+    @State private var isShowingGamePlayView: Bool = false
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            VStack {
+                Spacer()
+                
+                // todo
+                
+                Spacer()
+                
+                HStack{
+                    Button("Exit") {
+                        withAnimation {
+                            self.isShowingThisView.toggle()
+                        }
+                    }
+                    .buttonStyle(QQSecondaryButtonStyle())
+                    .padding(.trailing, -50.0)
+                    
+                    Button("Start Game") {
+                        withAnimation {
+                            self.isShowingGamePlayView.toggle()
+                        }
+                    }
+                    .buttonStyle(QQPrimaryButtonStyle())
+                    .padding(.leading, -50.0)
+                }
+                .padding(.bottom, 50.0)
+            }
+            .navigationTitle("New Game")
+            .fullScreenCover(isPresented: $isShowingGamePlayView, content: {
+                GamePlayView(isShowingThisView: $isShowingGamePlayView)
+            })
+        }
     }
 }
 
