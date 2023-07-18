@@ -8,9 +8,9 @@ This iOS application allows users to test their knowledge by answering True/Fals
 Below are a few screenshots that showcase the QuizQuest app.
 
 <div tyle="display: flex; justify-content: center;">
-  <img src="https://github.com/john-sak/quiz-quest/assets/79512710/471d3167-ae95-491a-9f62-634d588291c0" alt="Home Screen - Light" style="width: 300px; margin-right: 50px">
-  <img src="https://github.com/john-sak/quiz-quest/assets/79512710/b8da7e0b-ee1d-4af0-b38d-b7285873cb98" alt="Home Screen - Dark" style="width: 300px; margin-right: 50px">
-  <img src="https://github.com/john-sak/quiz-quest/assets/79512710/7976dc86-9439-4ee7-8f7f-44213d6fb8fa" alt="How to Play - Light" style="width: 300px; margin-right: 50px">
+  <img src="https://github.com/john-sak/quiz-quest/assets/79512710/471d3167-ae95-491a-9f62-634d588291c0" alt="Home Screen - Light" style="width: 200px; margin-right: 50px">
+  <img src="https://github.com/john-sak/quiz-quest/assets/79512710/b8da7e0b-ee1d-4af0-b38d-b7285873cb98" alt="Home Screen - Dark" style="width: 200px; margin-right: 50px">
+  <img src="https://github.com/john-sak/quiz-quest/assets/79512710/7976dc86-9439-4ee7-8f7f-44213d6fb8fa" alt="How to Play - Light" style="width: 200px; margin-right: 50px">
 </div>
 <div align="center">
   <p>Figure 1: Home Screen on Light Theme</p>
