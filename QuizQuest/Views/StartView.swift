@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct StartView: View {
+    @State private var isShowingHowToPlayView: Bool = false
+    
     var body: some View {
         VStack {
             Image("LaunchScreen")
@@ -22,7 +24,9 @@ struct StartView: View {
             }.buttonStyle(QQPrimaryButtonStyle())
 
             Button("How to Play") {
-                print("How to Play")
+                withAnimation {
+                    self.isShowingHowToPlayView.toggle()
+                }
             }.buttonStyle(QQSecondaryButtonStyle())
 
             Button("Special Thanks") {
@@ -32,6 +36,9 @@ struct StartView: View {
             Spacer()
         }
         .padding()
+        .sheet(isPresented: $isShowingHowToPlayView, content: {
+            HowToPlayView(isShowingThisView: $isShowingHowToPlayView)
+        })
     }
 }
 
