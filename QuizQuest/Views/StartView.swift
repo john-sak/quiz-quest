@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct StartView: View {
+    @State private var isShowingNewGameView: Bool = false
     @State private var isShowingHowToPlayView: Bool = false
     @State private var isShowingSpecialThanksView: Bool = false
     
@@ -21,7 +22,9 @@ struct StartView: View {
             Spacer()
 
             Button("New Game") {
-                print("New Game")
+                withAnimation {
+                    self.isShowingNewGameView.toggle()
+                }
             }
             .buttonStyle(QQPrimaryButtonStyle())
             .padding(.bottom, 5.0)
@@ -43,6 +46,9 @@ struct StartView: View {
             Spacer()
         }
         .padding()
+        .fullScreenCover(isPresented: $isShowingNewGameView, content: {
+            NewGameView(isShowingThisView: $isShowingNewGameView)
+        })
         .sheet(isPresented: $isShowingHowToPlayView, content: {
             HowToPlayView(isShowingThisView: $isShowingHowToPlayView)
         })
