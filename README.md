@@ -4,6 +4,20 @@ Q&amp;A game for iOS; questions and answers provided by [OpenTriviaDB](https://o
 ## Overview
 This iOS application allows users to test their knowledge by answering True/False or Multiple-Choice trivia questions. The game retrieves questions from the OpenTrivia Database and provides a score based on the user's correct answers.
 
+### Screenshots
+Below are a few screenshots that showcase the QuizQuest app.
+
+<div tyle="display: flex; justify-content: center;">
+  <img src="https://github.com/john-sak/quiz-quest/assets/79512710/471d3167-ae95-491a-9f62-634d588291c0" alt="Home Screen - Light" style="width: 300px; margin-right: 50px">
+  <img src="https://github.com/john-sak/quiz-quest/assets/79512710/b8da7e0b-ee1d-4af0-b38d-b7285873cb98" alt="Home Screen - Dark" style="width: 300px; margin-right: 50px">
+  <img src="https://github.com/john-sak/quiz-quest/assets/79512710/7976dc86-9439-4ee7-8f7f-44213d6fb8fa" alt="How to Play - Light" style="width: 300px; margin-right: 50px">
+</div>
+<div align="center">
+  <p>Figure 1: Home Screen on Light Theme</p>
+  <p>Figure 2: Home Screen on Dark Theme</p>
+  <p>Figure 3: How-to-Play Screen</p>
+</div>
+
 ## Features
 - User-friendly interface: The app provides a simple and intuitive interface for an enjoyable user experience.
 - Multiple question types: The game includes True/False and Multiple-Choice questions, offering variety and challenge.
