@@ -1,5 +1,5 @@
 # QuizQuest
-Q&amp;A game for iOS; questions and answers provided by Open Trivia DB (https://opentdb.com).
+Q&amp;A game for iOS; questions and answers provided by [OpenTriviaDB](https://opentdb.com).
 
 ## Overview
 This iOS application allows users to test their knowledge by answering True/False or Multiple-Choice trivia questions. The game retrieves questions from the OpenTrivia Database and provides a score based on the user's correct answers.
@@ -44,7 +44,7 @@ Contributions are welcome! If you'd like to contribute to the Trivia Game App, p
 Please ensure that your code adheres to the project's coding conventions and is well-documented.
 
 ## Acknowledgments
-The QuizQuest app utilizes the OpenTrivia Database (https://opentdb.com) for its question data. Special thanks to the OpenTrivia team for providing the API.
+The QuizQuest app utilizes the OpenTrivia Database for its question data. Special thanks to the [OpenTrivia](https://opentdb.com) team for providing the API.
 
 ## Contact
 If you have any questions, suggestions, or feedback, please feel free to reach out.
