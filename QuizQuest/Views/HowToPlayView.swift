@@ -27,7 +27,7 @@ struct HowToPlayView: View {
                     VStack {
                         Text("🕹️")
                             .padding(.bottom, 5.0)
-                        Text("Hit \"New Game\", choose the number of questions you want and try to answer as many as you can correctly.")
+                        Text("Hit \"New Game\", select any options you want and try to answer as many questions as you can correctly.")
                             .multilineTextAlignment(.center)
                     }
                     .padding()
@@ -49,7 +49,7 @@ struct HowToPlayView: View {
                         self.isShowingThisView.toggle()
                     }
                 }
-                .padding(.bottom, 50.0)
+                .padding(.bottom, 30.0)
                 .buttonStyle(QQPrimaryButtonStyle())
             }
             .navigationTitle("How to Play")
