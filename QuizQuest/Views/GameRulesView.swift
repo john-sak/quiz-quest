@@ -47,7 +47,7 @@ struct GameRulesView: View {
                 Spacer()
                 
                 HStack {
-                    Button("Exit") {
+                    Button("Cancel") {
                         withAnimation {
                             isShowingThisView.toggle()
                         }
