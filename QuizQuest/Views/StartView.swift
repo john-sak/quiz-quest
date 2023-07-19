@@ -59,7 +59,7 @@ struct StartView: View {
         }
         .padding()
         .fullScreenCover(isPresented: $isShowingNewGameView, content: {
-            NewGameView(isShowingThisView: $isShowingNewGameView)
+            GameRulesView(isShowingThisView: $isShowingNewGameView)
         })
         .sheet(isPresented: $isShowingHowToPlayView, content: {
             HowToPlayView(isShowingThisView: $isShowingHowToPlayView)
