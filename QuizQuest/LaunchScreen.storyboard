@@ -19,6 +19,7 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="OB2-4Y-JoG">
                                 <rect key="frame" x="70" y="344.33333333333331" width="253" height="163.33333333333331"/>
+                                <color key="tintColor" systemColor="labelColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="OB2-4Y-JoG" secondAttribute="height" multiplier="76:49" id="JYm-73-5K3"/>
                                 </constraints>
@@ -40,6 +41,9 @@
     </scenes>
     <resources>
         <image name="Logo" width="75.23699951171875" height="48.125"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -27,7 +27,7 @@ struct HowToPlayView: View {
                     VStack {
                         Text("🕹️")
                             .padding(.bottom, 5.0)
-                        Text("Hit \"New Game\", select any options you want and try to answer as many questions as you can correctly.")
+                        Text("Hit \"New Game\", adjust any options you want and try to answer as many questions as you can correctly.")
                             .multilineTextAlignment(.center)
                     }
                     .padding()
@@ -44,7 +44,7 @@ struct HowToPlayView: View {
                 
                 Spacer()
                 
-                Button("OK") {
+                Button("Home Screen") {
                     withAnimation {
                         self.isShowingThisView.toggle()
                     }
