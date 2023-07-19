@@ -3,7 +3,7 @@ Q&amp;A game for iOS; questions and answers provided by [OpenTriviaDB](https://o
 
 ## Overview
 This iOS application allows users to test their knowledge by answering True/False or Multiple-Choice trivia questions. The game retrieves questions from the OpenTrivia Database and provides a score based on the user's correct answers.
-
+<!--
 ## Screenshots
 Below are a few screenshots that showcase the QuizQuest app.
 
@@ -19,11 +19,11 @@ These screenshots are provided for illustrative purposes and may not reflect the
   <p>Figure 2: Home Screen on Dark Theme</p>
   <p>Figure 3: How-to-Play Screen</p>
 </div>
-
+-->
 ## Features
 - User-friendly interface: The app provides a simple and intuitive interface for an enjoyable user experience.
 - Multiple question types: The game includes True/False and Multiple-Choice questions, offering variety and challenge.
-- Adjustable difficulty: Users can select the number of questions they want to answer, allowing customization and flexibility.
+- Adjustable difficulty: Users can select the number of questions they want to answer, as well as their difficulty, answer type and category, allowing customization and flexibility.
 - OpenTrivia Database integration: The app fetches questions from the OpenTrivia Database, ensuring a vast range of trivia content.
 - Score tracking: At the end of the game, users receive a score indicating the number of correct answers.
 
@@ -42,7 +42,7 @@ These screenshots are provided for illustrative purposes and may not reflect the
 ## Usage
 1. Launch the QuizQuest app on your iOS device or simulator.
 2. On the home screen select "New Game".
-3. Enter the number of questions you want to answer.
+3. Follow the promts to customize your game.
 4. Select "Go" to begin the game.
 5. Read each question carefully and choose the correct answer. For mMltiple-Choice questions, select the option you believe is correct. For True/False questions, tap the appropriate button to indicate your answer.
 6. Continue answering questions until you have completed the selected number.
