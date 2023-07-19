@@ -27,7 +27,7 @@ struct StartView: View {
             VStack{
                 Button("New Game") {
                     withAnimation {
-                        self.isShowingNewGameView.toggle()
+                        isShowingNewGameView.toggle()
                     }
                 }
                 .buttonStyle(QQPrimaryButtonStyle())
@@ -35,21 +35,21 @@ struct StartView: View {
 
                 Button("How to Play") {
                     withAnimation {
-                        self.isShowingHowToPlayView.toggle()
+                        isShowingHowToPlayView.toggle()
                     }
                 }
                 .buttonStyle(QQSecondaryButtonStyle())
 
                 Button("Acknowledgments") {
                     withAnimation {
-                        self.isShowingAcknowledgmentsView.toggle()
+                        isShowingAcknowledgmentsView.toggle()
                     }
                 }
                 .buttonStyle(QQSecondaryButtonStyle())
                 
                 Button("About Me") {
                     withAnimation {
-                        self.isShowingAboutMeView.toggle()
+                        isShowingAboutMeView.toggle()
                     }
                 }
                 .buttonStyle(QQSecondaryButtonStyle())
@@ -58,7 +58,7 @@ struct StartView: View {
             Spacer()
         }
         .padding()
-        .fullScreenCover(isPresented: $isShowingNewGameView, content: {
+        .sheet(isPresented: $isShowingNewGameView, content: {
             GameRulesView(isShowingThisView: $isShowingNewGameView)
         })
         .sheet(isPresented: $isShowingHowToPlayView, content: {

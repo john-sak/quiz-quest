@@ -103,12 +103,12 @@
 			isa = PBXGroup;
 			children = (
 				F19851D22A657F7B00A48096 /* StartView.swift */,
-				F19851EE2A67079D00A48096 /* GameOptionsView.swift */,
+				F19851FE2A680E6C00A48096 /* GameRulesView.swift */,
 				F19851EA2A66B39600A48096 /* HowToPlayView.swift */,
 				F19851EC2A66C37300A48096 /* AcknowledgmentsView.swift */,
 				F19851FC2A67F7EA00A48096 /* AboutMeView.swift */,
+				F19851EE2A67079D00A48096 /* GameOptionsView.swift */,
 				F19851F82A671A6800A48096 /* LoadingView.swift */,
-				F19851FE2A680E6C00A48096 /* GameRulesView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

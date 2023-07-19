@@ -10,7 +10,7 @@ import SwiftUI
 struct GameOptionsView: View {
     @Binding var isShowingThisView: Bool
     
-    @State private var isLoading: Bool = false
+    @State private var isLoading: Bool = true
 
     @State private var categories: [Category] = []
     @State private var difficulties: [String] = []
@@ -21,10 +21,10 @@ struct GameOptionsView: View {
     @State private var selectedAnswerType: String = ""
 
     @State private var selectedIndex: Int = 0
-    let values = Array(stride(from: 10, through: 30, by: 5))
+    private let values = Array(stride(from: 10, through: 30, by: 5))
     
     var body: some View {
-        if self.isLoading {
+        if isLoading {
             LoadingView()
                 .onAppear {
                     fetchOptions()
@@ -57,7 +57,7 @@ struct GameOptionsView: View {
                         }
                         Section(header: Text("Difficulty")
                             .fontWeight(.bold)) {
-                            Picker(selection: $selectedDifficulty, label: Text("Difficulty")) {
+                                Picker(selection: $selectedDifficulty, label: Text("Difficulty")) {
                                 ForEach(difficulties, id: \.self) { difficulty in
                                     Text(difficulty).tag(difficulty)
                                 }
@@ -74,18 +74,11 @@ struct GameOptionsView: View {
                         Section(header: Text("Number of Questions")
                             .fontWeight(.bold)) {
                                 Picker("Value", selection: $selectedIndex) {
-                                    ForEach(0..<values.count) { index in
+                                    ForEach(0..<values.count, id: \.self) { index in
                                         Text("\(values[index])")
                                     }
                                 }
                                 .pickerStyle(.segmented)
-                                
-//                                Slider(value: Binding<Double>(
-//                                    get: { Double(selectedNumberOfQuestions) },
-//                                    set: { selectedNumberOfQuestions = Int($0) }
-//                                ), in: 5...50, step: 5) {
-//                                    Text("\(selectedNumberOfQuestions)")
-//                                }
                             }
                             .padding(.horizontal, 70.0)
 
@@ -96,7 +89,7 @@ struct GameOptionsView: View {
                     HStack{
                         Button("Cancel") {
                             withAnimation {
-                                self.isShowingThisView.toggle()
+                                isShowingThisView.toggle()
                             }
                         }
                         .buttonStyle(QQSecondaryButtonStyle())
@@ -104,7 +97,7 @@ struct GameOptionsView: View {
                         
                         Button("Start Game") {
                             withAnimation {
-//                                self.isShowingNewGameOptionsView.toggle()
+//                                isShowingNewGameOptionsView.toggle()
                             }
                         }
                         .buttonStyle(QQPrimaryButtonStyle())
@@ -121,7 +114,7 @@ struct GameOptionsView: View {
         fetchCategories()
         fetchDifficulties()
         fetchAnswerTypes()
-        self.isLoading.toggle()
+        isLoading.toggle()
     }
     
     func fetchCategories() {

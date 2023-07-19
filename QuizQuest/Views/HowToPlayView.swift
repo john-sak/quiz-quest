@@ -46,7 +46,7 @@ struct HowToPlayView: View {
                 
                 Button("Home Screen") {
                     withAnimation {
-                        self.isShowingThisView.toggle()
+                        isShowingThisView.toggle()
                     }
                 }
                 .buttonStyle(QQPrimaryButtonStyle())

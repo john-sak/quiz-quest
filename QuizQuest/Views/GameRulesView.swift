@@ -49,15 +49,15 @@ struct GameRulesView: View {
                 HStack {
                     Button("Exit") {
                         withAnimation {
-                            self.isShowingThisView.toggle()
+                            isShowingThisView.toggle()
                         }
                     }
                     .buttonStyle(QQSecondaryButtonStyle())
                     .padding(.trailing, -50.0)
                     
-                    Button("Next") {
+                    Button("Play") {
                         withAnimation {
-                            self.isShowingGameOptionsView.toggle()
+                            isShowingGameOptionsView.toggle()
                         }
                     }
                     .buttonStyle(QQPrimaryButtonStyle())
