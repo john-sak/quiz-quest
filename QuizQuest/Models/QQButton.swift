@@ -8,15 +8,21 @@
 import SwiftUI
 
 let buttonCornerRadius: CGFloat = 8
+
 let paddingLevel1: Double = 20
 let paddingLevel2: Double = 50
+
 let opacityWhenPressed: Double = 0.2
+
 let overlayLineWidth: CGFloat = 3
+
+let primaryButtonColor: Color = .primary
+let secondaryButtonColor: Color = .primary
 
 struct QQPrimaryButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .foregroundColor(.primary)
+            .foregroundColor(primaryButtonColor)
             .fontWeight(.black)
             .padding(paddingLevel1)
             .frame(maxWidth: .infinity)
@@ -24,7 +30,7 @@ struct QQPrimaryButtonStyle: ButtonStyle {
             .cornerRadius(buttonCornerRadius)
             .overlay(
                 RoundedRectangle(cornerRadius: buttonCornerRadius)
-                    .stroke(Color.primary, lineWidth: overlayLineWidth)
+                    .stroke(primaryButtonColor, lineWidth: overlayLineWidth)
             )
             .padding(.horizontal, paddingLevel2)
             .buttonStyle(.bordered)
@@ -34,7 +40,7 @@ struct QQPrimaryButtonStyle: ButtonStyle {
 struct QQSecondaryButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .foregroundColor(.primary)
+            .foregroundColor(secondaryButtonColor)
             .fontWeight(.semibold)
             .padding(paddingLevel1)
             .frame(maxWidth: .infinity)
