@@ -15,19 +15,18 @@ struct AcknowledgmentsView: View {
             VStack {
                 Spacer()
                 
-                VStack(alignment: .center) {
+                VStack {
                     Text("Special thanks to OpenTriviaDB!")
                         .fontWeight(.bold)
                         .padding()
                         
                     Text("Their free database and API have been instrumental in providing a diverse range of engaging trivia questions, enhancing the user experience.")
-                        .padding(.horizontal)
-                        .padding(.vertical)
+                        .padding()
                     Text("Their generosity and commitment to knowledge sharing have made a significant impact on my project, allowing me to deliver a captivating trivia experience to my users.")
                         .padding(.horizontal)
                         .padding(.bottom)
                         
-                    Text("🎉Thank you, OpenTriviaDB✨")
+                    Text("🎉 Thank you, OpenTriviaDB ✨")
                         .fontWeight(.bold)
                         .padding()
                 }
