@@ -10,7 +10,8 @@ import SwiftUI
 struct StartView: View {
     @State private var isShowingNewGameView: Bool = false
     @State private var isShowingHowToPlayView: Bool = false
-    @State private var isShowingSpecialThanksView: Bool = false
+    @State private var isShowingAcknowledgmentsView: Bool = false
+    @State private var isShowingAboutMeView: Bool = false
     
     var body: some View {
         VStack {
@@ -39,9 +40,16 @@ struct StartView: View {
                 }
                 .buttonStyle(QQSecondaryButtonStyle())
 
-                Button("Special Thanks") {
+                Button("Acknowledgments") {
                     withAnimation {
-                        self.isShowingSpecialThanksView.toggle()
+                        self.isShowingAcknowledgmentsView.toggle()
+                    }
+                }
+                .buttonStyle(QQSecondaryButtonStyle())
+                
+                Button("About Me") {
+                    withAnimation {
+                        self.isShowingAboutMeView.toggle()
                     }
                 }
                 .buttonStyle(QQSecondaryButtonStyle())
@@ -56,8 +64,11 @@ struct StartView: View {
         .sheet(isPresented: $isShowingHowToPlayView, content: {
             HowToPlayView(isShowingThisView: $isShowingHowToPlayView)
         })
-        .sheet(isPresented: $isShowingSpecialThanksView, content: {
-            SpecialThanksView(isShowingThisView: $isShowingSpecialThanksView)
+        .sheet(isPresented: $isShowingAcknowledgmentsView, content: {
+            AcknowledgmentsView(isShowingThisView: $isShowingAcknowledgmentsView)
+        })
+        .sheet(isPresented: $isShowingAboutMeView, content: {
+            AboutMeView(isShowingThisView: $isShowingAboutMeView)
         })
     }
 }
