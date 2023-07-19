@@ -16,68 +16,48 @@ struct AcknowledgmentsView: View {
                 Spacer()
                 
                 VStack(alignment: .center) {
-                    Spacer()
-                    
-                    Text("QuizQuest was created in July 2023")
+                    Text("Special thanks to OpenTriviaDB!")
                         .fontWeight(.bold)
                         .padding()
-                    
-                    VStack {
-                        Text("This project marks my first iOS app, and I'm thrilled to share it with you.")
-                            .padding(.top)
-                        Text("A big shout out to OpenTriviaDB for providing the fantastic questions and answers that make this app engaging.")
-                            .padding()
-                        Text("If you enjoyed using the app and would like to connect or explore more of my work, please visit my GitHub. Your feedback and suggestions are always welcome!")
-                            .padding(.bottom)
-                    }
-                    .multilineTextAlignment(.center)
-                                 
-                    Spacer()
-                    
-                    HStack {
-                        Spacer()
                         
-                        Text("My GitHub")
-                            .foregroundColor(.blue)
-                            .underline(true, color: .blue)
-                            .onTapGesture {
-                                if let url = URL(string: "https://github.com/john-sak") {
-                                    UIApplication.shared.open(url)
-                                }
-                            }
+                    Text("Their free database and API have been instrumental in providing a diverse range of engaging trivia questions, enhancing the user experience.")
+                        .padding(.horizontal)
+                        .padding(.vertical)
+                    Text("Their generosity and commitment to knowledge sharing have made a significant impact on my project, allowing me to deliver a captivating trivia experience to my users.")
+                        .padding(.horizontal)
+                        .padding(.bottom)
                         
-                        Spacer()
-                        
-                        Text("OpenTriviaDB")
-                            .foregroundColor(.blue)
-                            .underline(true, color: .blue)
-                            .onTapGesture {
-                                if let url = URL(string: "https://opentdb.com") {
-                                    UIApplication.shared.open(url)
-                                }
-                            }
-                        
-                        Spacer()
-                    }
-                    .padding(.vertical)
-                    
-                    Spacer()
-
+                    Text("🎉Thank you, OpenTriviaDB✨")
+                        .fontWeight(.bold)
+                        .padding()
                 }
                 .padding(.horizontal, 30.0)
                 .padding(.vertical)
+                .multilineTextAlignment(.center)
                 
                 Spacer()
                 
-                Button("OK") {
-                    withAnimation {
-                        self.isShowingThisView.toggle()
+                VStack{
+                    Button("OpenTriviaDB's website") {
+                        if let url = URL(string: "https://opentdb.com") {
+                            if (UIApplication.shared.canOpenURL(url)) {
+                                UIApplication.shared.open(url)
+                            }
+                        }
                     }
+                    .buttonStyle(QQSecondaryButtonStyle())
+                    
+                    Button("Home Screen") {
+                        withAnimation {
+                            self.isShowingThisView.toggle()
+                        }
+                    }
+                    .buttonStyle(QQPrimaryButtonStyle())
+                    .padding(.top, 5.0)
+                    .padding(.bottom, 30.0)
                 }
-                .buttonStyle(QQPrimaryButtonStyle())
-                .padding(.bottom, 50.0)
             }
-            .navigationTitle("Special Thanks")
+            .navigationTitle("Acknowledgements")
         }
     }
 }
