@@ -14,34 +14,38 @@ struct StartView: View {
     
     var body: some View {
         VStack {
-            Image("LaunchScreen")
+            Spacer()
+            
+            Image("Logo")
                 .resizable()
                 .scaledToFit()
-                .padding(.bottom, -100.0)
+                .padding(30.0)
 
             Spacer()
-
-            Button("New Game") {
-                withAnimation {
-                    self.isShowingNewGameView.toggle()
+            
+            VStack{
+                Button("New Game") {
+                    withAnimation {
+                        self.isShowingNewGameView.toggle()
+                    }
                 }
-            }
-            .buttonStyle(QQPrimaryButtonStyle())
-            .padding(.bottom, 5.0)
+                .buttonStyle(QQPrimaryButtonStyle())
+                .padding(.bottom, 5.0)
 
-            Button("How to Play") {
-                withAnimation {
-                    self.isShowingHowToPlayView.toggle()
+                Button("How to Play") {
+                    withAnimation {
+                        self.isShowingHowToPlayView.toggle()
+                    }
                 }
-            }
-            .buttonStyle(QQSecondaryButtonStyle())
+                .buttonStyle(QQSecondaryButtonStyle())
 
-            Button("Special Thanks") {
-                withAnimation {
-                    self.isShowingSpecialThanksView.toggle()
+                Button("Special Thanks") {
+                    withAnimation {
+                        self.isShowingSpecialThanksView.toggle()
+                    }
                 }
+                .buttonStyle(QQSecondaryButtonStyle())
             }
-            .buttonStyle(QQSecondaryButtonStyle())
 
             Spacer()
         }
