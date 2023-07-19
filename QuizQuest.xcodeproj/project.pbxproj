@@ -14,12 +14,13 @@
 		F19851DF2A66879B00A48096 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F19851DE2A66879B00A48096 /* LaunchScreen.storyboard */; };
 		F19851E32A6694E800A48096 /* QQButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19851E22A6694E800A48096 /* QQButton.swift */; };
 		F19851EB2A66B39600A48096 /* HowToPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19851EA2A66B39600A48096 /* HowToPlayView.swift */; };
-		F19851ED2A66C37300A48096 /* SpecialThanksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19851EC2A66C37300A48096 /* SpecialThanksView.swift */; };
+		F19851ED2A66C37300A48096 /* AcknowledgmentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19851EC2A66C37300A48096 /* AcknowledgmentsView.swift */; };
 		F19851EF2A67079D00A48096 /* NewGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19851EE2A67079D00A48096 /* NewGameView.swift */; };
 		F19851F32A670E7100A48096 /* GamePlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19851F22A670E7100A48096 /* GamePlayView.swift */; };
 		F19851F72A67133800A48096 /* QQQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19851F62A67133800A48096 /* QQQuestion.swift */; };
 		F19851F92A671A6800A48096 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19851F82A671A6800A48096 /* LoadingView.swift */; };
 		F19851FB2A671C6A00A48096 /* QQOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19851FA2A671C6A00A48096 /* QQOptions.swift */; };
+		F19851FD2A67F7EA00A48096 /* AboutMeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19851FC2A67F7EA00A48096 /* AboutMeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,12 +32,13 @@
 		F19851DE2A66879B00A48096 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F19851E22A6694E800A48096 /* QQButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QQButton.swift; sourceTree = "<group>"; };
 		F19851EA2A66B39600A48096 /* HowToPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToPlayView.swift; sourceTree = "<group>"; };
-		F19851EC2A66C37300A48096 /* SpecialThanksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialThanksView.swift; sourceTree = "<group>"; };
+		F19851EC2A66C37300A48096 /* AcknowledgmentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcknowledgmentsView.swift; sourceTree = "<group>"; };
 		F19851EE2A67079D00A48096 /* NewGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGameView.swift; sourceTree = "<group>"; };
 		F19851F22A670E7100A48096 /* GamePlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePlayView.swift; sourceTree = "<group>"; };
 		F19851F62A67133800A48096 /* QQQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QQQuestion.swift; sourceTree = "<group>"; };
 		F19851F82A671A6800A48096 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		F19851FA2A671C6A00A48096 /* QQOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QQOptions.swift; sourceTree = "<group>"; };
+		F19851FC2A67F7EA00A48096 /* AboutMeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,8 +106,9 @@
 				F19851EE2A67079D00A48096 /* NewGameView.swift */,
 				F19851F22A670E7100A48096 /* GamePlayView.swift */,
 				F19851EA2A66B39600A48096 /* HowToPlayView.swift */,
-				F19851EC2A66C37300A48096 /* SpecialThanksView.swift */,
+				F19851EC2A66C37300A48096 /* AcknowledgmentsView.swift */,
 				F19851F82A671A6800A48096 /* LoadingView.swift */,
+				F19851FC2A67F7EA00A48096 /* AboutMeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -183,7 +186,8 @@
 			files = (
 				F19851EB2A66B39600A48096 /* HowToPlayView.swift in Sources */,
 				F19851D32A657F7B00A48096 /* StartView.swift in Sources */,
-				F19851ED2A66C37300A48096 /* SpecialThanksView.swift in Sources */,
+				F19851FD2A67F7EA00A48096 /* AboutMeView.swift in Sources */,
+				F19851ED2A66C37300A48096 /* AcknowledgmentsView.swift in Sources */,
 				F19851F32A670E7100A48096 /* GamePlayView.swift in Sources */,
 				F19851D12A657F7B00A48096 /* QuizQuestApp.swift in Sources */,
 				F19851F72A67133800A48096 /* QQQuestion.swift in Sources */,

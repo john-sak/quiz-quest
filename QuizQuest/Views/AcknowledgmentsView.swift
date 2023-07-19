@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SpecialThanksView: View {
+struct AcknowledgmentsView: View {
     @Binding var isShowingThisView: Bool
     
     var body: some View {
@@ -84,6 +84,6 @@ struct SpecialThanksView: View {
 
 struct SpecialThanksView_Previews: PreviewProvider {
     static var previews: some View {
-        SpecialThanksView(isShowingThisView: .constant(true))
+        AcknowledgmentsView(isShowingThisView: .constant(true))
     }
 }
