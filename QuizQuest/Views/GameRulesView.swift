@@ -9,9 +9,7 @@ import SwiftUI
 
 struct GameRulesView: View {
     @Binding var isShowingThisView: Bool
-    
-    @State private var isShowingGameOptionsView: Bool = false
-    
+        
     var body: some View {
         NavigationView {
             VStack {
@@ -55,21 +53,16 @@ struct GameRulesView: View {
                     }
                     .buttonStyle(QQSecondaryButtonStyle())
                     .padding(.trailing, -50.0)
-                    
-                    Button("Play") {
-                        withAnimation {
-                            isShowingGameOptionsView.toggle()
-                        }
-                    }
+                                        
+                    NavigationLink(destination: GameOptionsView(isShowingThisView: $isShowingThisView), label: {
+                        Text("Next")
+                    })
                     .buttonStyle(QQPrimaryButtonStyle())
                     .padding(.leading, -50.0)
                 }
                 .padding(.bottom, 30.0)
             }
             .navigationTitle("New Game")
-            .fullScreenCover(isPresented: $isShowingGameOptionsView, content: {
-                GameOptionsView(isShowingThisView: $isShowingGameOptionsView)
-            })
         }
     }
 }
