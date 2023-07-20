@@ -117,7 +117,7 @@ struct GameOptionsView: View {
                     .buttonStyle(QQPrimaryButtonStyle())
                     .padding(.leading, -50.0)
                 }
-                .padding(.bottom, 50.0)
+                .padding(.bottom, 30.0)
             }
             .navigationTitle("Customize Game")
             .fullScreenCover(isPresented: $isShowingGamePlayView, content: {

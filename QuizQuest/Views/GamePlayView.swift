@@ -43,7 +43,40 @@ struct GamePlayView: View {
         } else {
             NavigationView {
                 VStack{
-                    Text("\(questions.count)")
+                    Spacer()
+                    
+//                    TODO
+//                    present questions
+                    
+                    HStack {
+                        Button("Exit") {
+                            withAnimation {
+                                isShowingThisView.toggle()
+                            }
+                        }
+                        .buttonStyle(QQSecondaryButtonStyle())
+                        .padding(.trailing, -50.0)
+                        
+                        if index < questions.count - 1 {
+                            Button("Next") {
+                                index += 1
+                            }
+                            .buttonStyle(QQPrimaryButtonStyle())
+                            .padding(.leading, -50.0)
+                        } else {
+//                            Button("Finish") {
+//                                withAnimation {
+//                                    isShowingThisView.toggle()
+//                                }
+//                            }
+//                            .buttonStyle(QQPrimaryButtonStyle())
+//                            .padding(.leading, -50.0)
+//
+//                            TODO
+//                            NavigationLink to ScoreView
+                        }
+                    }
+                    .padding(.bottom, 30.0)
                 }
                 .navigationTitle("Game Playing")
             }
@@ -52,7 +85,7 @@ struct GamePlayView: View {
     
     func fetchQuestions() {
         let options: String = "?amount=" + String(ammountAPI) + (catAPI.isEmpty ? "" : "&category=" + catAPI) + (diffAPI.isEmpty ? "" : "&difficulty=" + diffAPI) + (ansTypeAPI.isEmpty ? "" : "&type=" + ansTypeAPI)
-        print(options)
+
         guard let apiURL = URL(string: "https://opentdb.com/api.php" + options) else {
             print("Error hitting API")
             return
