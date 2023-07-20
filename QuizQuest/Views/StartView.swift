@@ -8,46 +8,67 @@
 import SwiftUI
 
 struct StartView: View {
+    @State private var isShowingNewGameView: Bool = false
     @State private var isShowingHowToPlayView: Bool = false
-    @State private var isShowingSpecialThanksView: Bool = false
+    @State private var isShowingAcknowledgmentsView: Bool = false
+    @State private var isShowingAboutMeView: Bool = false
     
     var body: some View {
         VStack {
-            Image("LaunchScreen")
+            Spacer()
+            
+            Image("Logo")
                 .resizable()
                 .scaledToFit()
-                .padding(.bottom, -100.0)
+                .padding(30.0)
 
             Spacer()
-
-            Button("New Game") {
-                print("New Game")
-            }
-            .buttonStyle(QQPrimaryButtonStyle())
-            .padding(.bottom, 5.0)
-
-            Button("How to Play") {
-                withAnimation {
-                    self.isShowingHowToPlayView.toggle()
+            
+            VStack{
+                Button("New Game") {
+                    withAnimation {
+                        isShowingNewGameView.toggle()
+                    }
                 }
-            }
-            .buttonStyle(QQSecondaryButtonStyle())
+                .buttonStyle(QQPrimaryButtonStyle())
+                .padding(.bottom, 5.0)
 
-            Button("Special Thanks") {
-                withAnimation {
-                    self.isShowingSpecialThanksView.toggle()
+                Button("How to Play") {
+                    withAnimation {
+                        isShowingHowToPlayView.toggle()
+                    }
                 }
+                .buttonStyle(QQSecondaryButtonStyle())
+
+                Button("Acknowledgments") {
+                    withAnimation {
+                        isShowingAcknowledgmentsView.toggle()
+                    }
+                }
+                .buttonStyle(QQSecondaryButtonStyle())
+                
+                Button("About Me") {
+                    withAnimation {
+                        isShowingAboutMeView.toggle()
+                    }
+                }
+                .buttonStyle(QQSecondaryButtonStyle())
             }
-            .buttonStyle(QQSecondaryButtonStyle())
 
             Spacer()
         }
         .padding()
+        .sheet(isPresented: $isShowingNewGameView, content: {
+            GameRulesView(isShowingThisView: $isShowingNewGameView)
+        })
         .sheet(isPresented: $isShowingHowToPlayView, content: {
             HowToPlayView(isShowingThisView: $isShowingHowToPlayView)
         })
-        .sheet(isPresented: $isShowingSpecialThanksView, content: {
-            SpecialThanksView(isShowingThisView: $isShowingSpecialThanksView)
+        .sheet(isPresented: $isShowingAcknowledgmentsView, content: {
+            AcknowledgmentsView(isShowingThisView: $isShowingAcknowledgmentsView)
+        })
+        .sheet(isPresented: $isShowingAboutMeView, content: {
+            AboutMeView(isShowingThisView: $isShowingAboutMeView)
         })
     }
 }

@@ -17,19 +17,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="LaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="wyh-XR-TBm">
-                                <rect key="frame" x="50" y="279.66666666666669" width="293" height="293.00000000000006"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="OB2-4Y-JoG">
+                                <rect key="frame" x="70" y="344.33333333333331" width="253" height="163.33333333333331"/>
+                                <color key="tintColor" systemColor="labelColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="wyh-XR-TBm" secondAttribute="height" multiplier="1:1" id="EvA-Ys-QNl"/>
+                                    <constraint firstAttribute="width" secondItem="OB2-4Y-JoG" secondAttribute="height" multiplier="76:49" id="JYm-73-5K3"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="wyh-XR-TBm" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="S5J-G7-ffo"/>
-                            <constraint firstItem="wyh-XR-TBm" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="50" id="dKz-hP-gUD"/>
-                            <constraint firstItem="wyh-XR-TBm" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="egO-2r-Lch"/>
+                            <constraint firstItem="OB2-4Y-JoG" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="kSj-EL-nek"/>
+                            <constraint firstItem="OB2-4Y-JoG" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" constant="70" id="o6d-jb-7jj"/>
+                            <constraint firstItem="OB2-4Y-JoG" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="zop-Yh-8xd"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -39,7 +40,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LaunchScreen" width="1024" height="1024"/>
+        <image name="Logo" width="75.23699951171875" height="48.125"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
