@@ -18,9 +18,9 @@ struct GameOptionsView: View {
     @State private var difficulties: [String] = ["Any Difficulty", "Easy", "Medium", "Hard"]
     @State private var answerTypes: [String] = ["Any Answer Type", "True or False", "Multiple Choice"]
 
-    @State private var selectedCategory: String?
-    @State private var selectedDifficulty: String?
-    @State private var selectedAnswerType: String?
+    @State private var selectedCategoryID: String = ""
+    @State private var selectedDifficulty: String = ""
+    @State private var selectedAnswerType: String = ""
 
     @State private var selectedIndex: Int = 0
     private let values = Array(stride(from: 10, through: 30, by: 5))
@@ -44,12 +44,11 @@ struct GameOptionsView: View {
                 VStack {
                     Section(header: Text("Category")
                         .fontWeight(.bold)) {
-                        Picker(selection: $selectedCategory, label: Text("Category")) {
+                        Picker(selection: $selectedCategoryID, label: Text("Category")) {
                             ForEach(categories, id: \.id) { category in
                                 Text(category.name).tag(String(category.id))
                             }
                         }
-                        .padding(.bottom, 10.0)
                     }
                     Section(header: Text("Difficulty")
                         .fontWeight(.bold)) {
@@ -58,7 +57,6 @@ struct GameOptionsView: View {
                                 Text(difficulty).tag(difficulty)
                             }
                         }
-                        .padding(.bottom, 10.0)
                     }
                     Section(header: Text("AnswerType")
                         .fontWeight(.bold)) {
@@ -67,7 +65,6 @@ struct GameOptionsView: View {
                                 Text(answerType).tag(answerType)
                             }
                         }
-                        .padding(.bottom, 10.0)
                     }
                     Section(header: Text("Number of Questions")
                         .fontWeight(.bold)) {
@@ -77,10 +74,8 @@ struct GameOptionsView: View {
                                 }
                             }
                             .pickerStyle(.segmented)
-                            .padding(.bottom, 10.0)
                         }
                         .padding(.horizontal, 70.0)
-
                 }
                 
                 Spacer()
@@ -107,7 +102,7 @@ struct GameOptionsView: View {
             }
             .navigationTitle("Customize Game")
             .fullScreenCover(isPresented: $isShowingGamePlayView, content: {
-                GamePlayView(isShowingThisView: $isShowingGamePlayView, selectedCategoryID: selectedCategory ?? "", selectedDifficulty: selectedDifficulty ?? "", selectedAnswerType: selectedAnswerType ?? "", selectedNumberOfQuestions: values[selectedIndex])
+                GamePlayView(isShowingThisView: $isShowingGamePlayView, selectedCategoryID: selectedCategoryID, selectedDifficulty: selectedDifficulty, selectedAnswerType: selectedAnswerType, selectedNumberOfQuestions: values[selectedIndex])
             })
         }
     }
