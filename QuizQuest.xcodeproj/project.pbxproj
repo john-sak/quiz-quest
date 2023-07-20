@@ -18,9 +18,9 @@
 		F19851EF2A67079D00A48096 /* GameOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19851EE2A67079D00A48096 /* GameOptionsView.swift */; };
 		F19851F72A67133800A48096 /* QQQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19851F62A67133800A48096 /* QQQuestion.swift */; };
 		F19851F92A671A6800A48096 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19851F82A671A6800A48096 /* LoadingView.swift */; };
-		F19851FB2A671C6A00A48096 /* QQOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19851FA2A671C6A00A48096 /* QQOptions.swift */; };
 		F19851FD2A67F7EA00A48096 /* AboutMeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19851FC2A67F7EA00A48096 /* AboutMeView.swift */; };
 		F19851FF2A680E6C00A48096 /* GameRulesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19851FE2A680E6C00A48096 /* GameRulesView.swift */; };
+		F19852012A692DB600A48096 /* GamePlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19852002A692DB600A48096 /* GamePlayView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,9 +36,9 @@
 		F19851EE2A67079D00A48096 /* GameOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOptionsView.swift; sourceTree = "<group>"; };
 		F19851F62A67133800A48096 /* QQQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QQQuestion.swift; sourceTree = "<group>"; };
 		F19851F82A671A6800A48096 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
-		F19851FA2A671C6A00A48096 /* QQOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QQOptions.swift; sourceTree = "<group>"; };
 		F19851FC2A67F7EA00A48096 /* AboutMeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMeView.swift; sourceTree = "<group>"; };
 		F19851FE2A680E6C00A48096 /* GameRulesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRulesView.swift; sourceTree = "<group>"; };
+		F19852002A692DB600A48096 /* GamePlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePlayView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,7 +94,6 @@
 			children = (
 				F19851E22A6694E800A48096 /* QQButton.swift */,
 				F19851F62A67133800A48096 /* QQQuestion.swift */,
-				F19851FA2A671C6A00A48096 /* QQOptions.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -108,6 +107,7 @@
 				F19851EC2A66C37300A48096 /* AcknowledgmentsView.swift */,
 				F19851FC2A67F7EA00A48096 /* AboutMeView.swift */,
 				F19851EE2A67079D00A48096 /* GameOptionsView.swift */,
+				F19852002A692DB600A48096 /* GamePlayView.swift */,
 				F19851F82A671A6800A48096 /* LoadingView.swift */,
 			);
 			path = Views;
@@ -189,8 +189,8 @@
 				F19851FD2A67F7EA00A48096 /* AboutMeView.swift in Sources */,
 				F19851ED2A66C37300A48096 /* AcknowledgmentsView.swift in Sources */,
 				F19851D12A657F7B00A48096 /* QuizQuestApp.swift in Sources */,
+				F19852012A692DB600A48096 /* GamePlayView.swift in Sources */,
 				F19851F72A67133800A48096 /* QQQuestion.swift in Sources */,
-				F19851FB2A671C6A00A48096 /* QQOptions.swift in Sources */,
 				F19851E32A6694E800A48096 /* QQButton.swift in Sources */,
 				F19851EF2A67079D00A48096 /* GameOptionsView.swift in Sources */,
 				F19851FF2A680E6C00A48096 /* GameRulesView.swift in Sources */,

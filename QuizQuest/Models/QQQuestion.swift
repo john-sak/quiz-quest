@@ -7,11 +7,15 @@
 
 import SwiftUI
 
+struct QQListQuestions: Codable {
+    let questions: [QQQuestion]
+}
+
 struct QQQuestion: Codable {
     let category: String
     let type: String
     let difficulty: String
     let question: String
-    let correctAnswer: String
-    let incorrectAnswers: [String]
+    let correct_answer: String
+    let incorrect_answers: [String]
 }
