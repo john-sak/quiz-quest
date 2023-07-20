@@ -52,31 +52,40 @@ struct GameOptionsView: View {
                 
                 VStack {
                     Section(header: Text("Category")
-                        .fontWeight(.bold)) {
+                        .fontWeight(.bold)
+                        .padding(.bottom, -20.0)) {
                         Picker(selection: $selectedCategoryID, label: Text("Category")) {
                             ForEach(categories, id: \.id) { category in
                                 Text(category.name).tag(category.id)
                             }
                         }
                     }
+                    .padding(.bottom, 20.0)
                     Section(header: Text("Difficulty")
-                        .fontWeight(.bold)) {
+                        .fontWeight(.bold)
+                        .padding(.bottom, -20.0)) {
                             Picker(selection: $selectedDifficulty, label: Text("Difficulty")) {
                             ForEach(difficulties, id: \.self) { difficulty in
                                 Text(difficulty).tag(difficulty)
                             }
                         }
                     }
+                    .padding(.top, -10.0)
+                    .padding(.bottom, 20.0)
                     Section(header: Text("AnswerType")
-                        .fontWeight(.bold)) {
+                        .fontWeight(.bold)
+                        .padding(.bottom, -20.0)) {
                         Picker(selection: $selectedAnswerType, label: Text("AnswerType")) {
                             ForEach(answerTypes, id: \.self) { answerType in
                                 Text(answerType).tag(answerType)
                             }
                         }
                     }
+                    .padding(.top, -10.0)
+                    .padding(.bottom, 20.0)
                     Section(header: Text("Number of Questions")
-                        .fontWeight(.bold)) {
+                        .fontWeight(.bold)
+                        .padding(.bottom, 20.0)) {
                             Picker("Value", selection: $selectedIndex) {
                                 ForEach(0..<values.count, id: \.self) { index in
                                     Text("\(values[index])")
@@ -84,8 +93,9 @@ struct GameOptionsView: View {
                             }
                             .pickerStyle(.segmented)
                         }
-                        .padding(.horizontal, 70.0)
+                        .padding(.top, -10.0)
                 }
+                .padding()
                 
                 Spacer()
                 Spacer()
