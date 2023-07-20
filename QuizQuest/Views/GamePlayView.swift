@@ -12,10 +12,13 @@ struct GamePlayView: View {
     
     @State private var isLoading: Bool = true
     
-    var selectedCategoryID: String
-    var selectedDifficulty: String
-    var selectedAnswerType: String
-    var selectedNumberOfQuestions: Int
+    var catAPI: String
+    var difAPI: String
+    var ansAPI: String
+    var ammAPI: Int
+    
+    @State private var index = 0
+    private let questions: [QQListQuestions] = []
     
     var body: some View {
         if isLoading {
@@ -26,10 +29,10 @@ struct GamePlayView: View {
         } else {
             NavigationView {
                 VStack{
-                    Text("Selected Category: \(selectedCategoryID)")
-                    Text("Selected Difficulty: \(selectedDifficulty)")
-                    Text("Selected Answer Type: \(selectedAnswerType)")
-                    Text("Selected Number of Questions: \(selectedNumberOfQuestions)")
+                    Text("Selected Category: \(catAPI)")
+                    Text("Selected Difficulty: \(difAPI)")
+                    Text("Selected Answer Type: \(ansAPI)")
+                    Text("Selected Number of Questions: \(ammAPI)")
                 }
                 .navigationTitle("Game Playing")
             }
@@ -44,6 +47,6 @@ struct GamePlayView: View {
 
 struct GamePlay_Previews: PreviewProvider {
     static var previews: some View {
-        GamePlayView(isShowingThisView: .constant(true), selectedCategoryID: "", selectedDifficulty: "", selectedAnswerType: "", selectedNumberOfQuestions: 0)
+        GamePlayView(isShowingThisView: .constant(true), catAPI: "", difAPI: "", ansAPI: "", ammAPI: 0)
     }
 }

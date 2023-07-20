@@ -13,14 +13,23 @@ struct GameOptionsView: View {
     @State private var isShowingGamePlayView: Bool = false
     
     @State private var isLoading: Bool = true
+    
+    private struct CategoryResponse: Codable {
+        let trivia_categories: [Category]
+    }
 
+    private struct Category: Codable {
+        let id: Int
+        let name: String
+    }
+    
     @State private var categories: [Category] = []
     @State private var difficulties: [String] = ["Any Difficulty", "Easy", "Medium", "Hard"]
     @State private var answerTypes: [String] = ["Any Answer Type", "True or False", "Multiple Choice"]
 
-    @State private var selectedCategoryID: String = ""
-    @State private var selectedDifficulty: String = ""
-    @State private var selectedAnswerType: String = ""
+    @State private var selectedCategoryID: Int = -1
+    @State private var selectedDifficulty: String = "Any Difficulty"
+    @State private var selectedAnswerType: String = "Any Answer Type"
 
     @State private var selectedIndex: Int = 0
     private let values = Array(stride(from: 10, through: 30, by: 5))
@@ -46,7 +55,7 @@ struct GameOptionsView: View {
                         .fontWeight(.bold)) {
                         Picker(selection: $selectedCategoryID, label: Text("Category")) {
                             ForEach(categories, id: \.id) { category in
-                                Text(category.name).tag(String(category.id))
+                                Text(category.name).tag(category.id)
                             }
                         }
                     }
@@ -102,7 +111,7 @@ struct GameOptionsView: View {
             }
             .navigationTitle("Customize Game")
             .fullScreenCover(isPresented: $isShowingGamePlayView, content: {
-                GamePlayView(isShowingThisView: $isShowingGamePlayView, selectedCategoryID: selectedCategoryID, selectedDifficulty: selectedDifficulty, selectedAnswerType: selectedAnswerType, selectedNumberOfQuestions: values[selectedIndex])
+                GamePlayView(isShowingThisView: $isShowingGamePlayView, catAPI: mapCategory(categoryID: selectedCategoryID), difAPI: mapDifficulty(difficulty: selectedDifficulty), ansAPI: mapAnswerType(answerType: selectedAnswerType), ammAPI: values[selectedIndex])
             })
         }
     }
@@ -133,8 +142,7 @@ struct GameOptionsView: View {
                 let decodedResponse = try JSONDecoder().decode(CategoryResponse.self, from: jsonData)
                 
                 var allCategories = decodedResponse.trivia_categories
-                let anyCategory = Category(id: -1, name: "Any Category")
-                allCategories.insert(anyCategory, at: 0)
+                allCategories.insert(Category(id: -1, name: "Any Category"), at: 0)
                 
                 let updatedResponse = CategoryResponse(trivia_categories: allCategories)
                 DispatchQueue.main.async {
@@ -146,6 +154,38 @@ struct GameOptionsView: View {
         }
         
         task.resume()
+    }
+    
+    func mapCategory(categoryID: Int) -> String {
+        if categoryID == -1 {
+            return ""
+        }
+        return String(categoryID)
+    }
+    
+    func mapDifficulty(difficulty: String) -> String {
+        let mapping: [String: String] = [
+            "Any Difficulty": "",
+            "Easy": "easy",
+            "Medium": "medium",
+            "Hard": "hard"]
+        
+        guard let mapped = mapping[difficulty] else {
+            return ""
+        }
+        return mapped
+    }
+    
+    func mapAnswerType(answerType: String) -> String {
+        let mapping: [String: String] = [
+            "Any Answer Type": "",
+            "True or False": "boolean",
+            "Multiple Choice": "multiple"]
+        
+        guard let mapped = mapping[answerType] else {
+            return ""
+        }
+        return mapped
     }
 }
 
