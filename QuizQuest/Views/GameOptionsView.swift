@@ -121,7 +121,7 @@ struct GameOptionsView: View {
             }
             .navigationTitle("Customize Game")
             .fullScreenCover(isPresented: $isShowingGamePlayView, content: {
-                GamePlayView(isShowingThisView: $isShowingGamePlayView, catAPI: mapCategory(categoryID: selectedCategoryID), difAPI: mapDifficulty(difficulty: selectedDifficulty), ansAPI: mapAnswerType(answerType: selectedAnswerType), ammAPI: values[selectedIndex])
+                GamePlayView(isShowingThisView: $isShowingGamePlayView, catAPI: mapCategory(categoryID: selectedCategoryID), diffAPI: mapDifficulty(difficulty: selectedDifficulty), ansTypeAPI: mapAnswerType(answerType: selectedAnswerType), ammountAPI: values[selectedIndex])
             })
         }
     }
