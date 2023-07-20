@@ -12,15 +12,15 @@ struct GameOptionsView: View {
     
     @State private var isShowingGamePlayView: Bool = false
     
-    @State private var isLoading: Bool = false
+    @State private var isLoading: Bool = true
 
     @State private var categories: [Category] = []
-    @State private var difficulties: [String] = []
-    @State private var answerTypes: [String] = []
+    @State private var difficulties: [String] = ["Any Difficulty", "Easy", "Medium", "Hard"]
+    @State private var answerTypes: [String] = ["Any Answer Type", "True or False", "Multiple Choice"]
 
-    @State private var selectedCategory: String = ""
-    @State private var selectedDifficulty: String = ""
-    @State private var selectedAnswerType: String = ""
+    @State private var selectedCategory: String?
+    @State private var selectedDifficulty: String?
+    @State private var selectedAnswerType: String?
 
     @State private var selectedIndex: Int = 0
     private let values = Array(stride(from: 10, through: 30, by: 5))
@@ -46,9 +46,10 @@ struct GameOptionsView: View {
                         .fontWeight(.bold)) {
                         Picker(selection: $selectedCategory, label: Text("Category")) {
                             ForEach(categories, id: \.id) { category in
-                                Text(category.name).tag(category.id)
+                                Text(category.name).tag(String(category.id))
                             }
                         }
+                        .padding(.bottom, 10.0)
                     }
                     Section(header: Text("Difficulty")
                         .fontWeight(.bold)) {
@@ -57,6 +58,7 @@ struct GameOptionsView: View {
                                 Text(difficulty).tag(difficulty)
                             }
                         }
+                        .padding(.bottom, 10.0)
                     }
                     Section(header: Text("AnswerType")
                         .fontWeight(.bold)) {
@@ -65,6 +67,7 @@ struct GameOptionsView: View {
                                 Text(answerType).tag(answerType)
                             }
                         }
+                        .padding(.bottom, 10.0)
                     }
                     Section(header: Text("Number of Questions")
                         .fontWeight(.bold)) {
@@ -74,6 +77,7 @@ struct GameOptionsView: View {
                                 }
                             }
                             .pickerStyle(.segmented)
+                            .padding(.bottom, 10.0)
                         }
                         .padding(.horizontal, 70.0)
 
@@ -103,28 +107,50 @@ struct GameOptionsView: View {
             }
             .navigationTitle("Customize Game")
             .fullScreenCover(isPresented: $isShowingGamePlayView, content: {
-                GamePlayView(isShowingThisView: $isShowingGamePlayView)
+                GamePlayView(isShowingThisView: $isShowingGamePlayView, selectedCategoryID: selectedCategory ?? "", selectedDifficulty: selectedDifficulty ?? "", selectedAnswerType: selectedAnswerType ?? "", selectedNumberOfQuestions: values[selectedIndex])
             })
         }
     }
     
     func fetchOptions() {
         fetchCategories()
-        fetchDifficulties()
-        fetchAnswerTypes()
         isLoading.toggle()
     }
     
     func fetchCategories() {
-//        TODO
-    }
-    
-    func fetchDifficulties() {
-//        TODO
-    }
-    
-    func fetchAnswerTypes() {
-//        TODO
+        guard let apiURL = URL(string: "https://opentdb.com/api_category.php") else {
+            print("Error hitting API")
+            return
+        }
+        let session = URLSession.shared
+        let task = session.dataTask(with: apiURL) { (data, response, error) in
+            if let error = error {
+                print("Error fetching categories: \(error)")
+                return
+            }
+            
+            guard let jsonData = data else {
+                print("Error receiving data")
+                return
+            }
+            
+            do {
+                let decodedResponse = try JSONDecoder().decode(CategoryResponse.self, from: jsonData)
+                
+                var allCategories = decodedResponse.trivia_categories
+                let anyCategory = Category(id: -1, name: "Any Category")
+                allCategories.insert(anyCategory, at: 0)
+                
+                let updatedResponse = CategoryResponse(trivia_categories: allCategories)
+                DispatchQueue.main.async {
+                    self.categories = updatedResponse.trivia_categories
+                }
+            } catch {
+                print("Error decoding JSON file: \(error)")
+            }
+        }
+        
+        task.resume()
     }
 }
 

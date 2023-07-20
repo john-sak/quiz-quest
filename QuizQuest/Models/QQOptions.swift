@@ -8,18 +8,18 @@
 import SwiftUI
 
 struct CategoryResponse: Codable {
-    let triviaCategories: [Category]
+    let trivia_categories: [Category]
 }
 
 struct Category: Codable {
-    let id: String
+    let id: Int
     let name: String
 }
-
-struct DifficultyResponse: Codable {
-    let difficulties: [String]
-}
-
-struct AnswerTypeResponse: Codable {
-    let answerTypes: [String]
-}
+//
+//struct DifficultyResponse: Codable {
+//    let difficulties: [String]
+//}
+//
+//struct AnswerTypeResponse: Codable {
+//    let answerTypes: [String]
+//}
