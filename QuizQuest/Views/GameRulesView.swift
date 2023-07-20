@@ -45,6 +45,7 @@ struct GameRulesView: View {
                 .padding(.horizontal, 40.0)
                 
                 Spacer()
+                Spacer()
                 
                 HStack {
                     Button("Cancel") {
