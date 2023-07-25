@@ -34,6 +34,9 @@ struct GamePlayView: View {
     @State private var index = 0
     @State private var questions: [QQQuestion] = []
     
+    @State private var score = 0
+    @State private var userAnswer = ""
+    
     var body: some View {
         if isLoading {
             LoadingView()
@@ -43,43 +46,57 @@ struct GamePlayView: View {
         } else {
             NavigationView {
                 VStack{
+                    ProgressView(value: Double(index + 1), total: Double(questions.count))
+                        .progressViewStyle(LinearProgressViewStyle())
+                        .padding(.top, 50.0)
+                        .padding(.horizontal, 50.0)
+
                     Spacer()
                     
-//                    TODO
-//                    present questions
                     Text(questions[index].question)
+                        .fontWeight(.bold)
+                        .multilineTextAlignment(.center)
+                        .padding()
+
+                    Spacer()
                     
-                    HStack {
-                        Button("Exit") {
-                            withAnimation {
-                                isShowingThisView.toggle()
-                            }
-                        }
-                        .buttonStyle(QQSecondaryButtonStyle())
-                        .padding(.trailing, -50.0)
-                        
-                        if index < questions.count - 1 {
-                            Button("Next") {
-                                index += 1
+                    VStack {
+                        if questions[index].type == "boolean" {
+                            Button("True") {
+                                nextQuestion(answer: "True")
                             }
                             .buttonStyle(QQPrimaryButtonStyle())
-                            .padding(.leading, -50.0)
+                            
+                            Button("False") {
+                                nextQuestion(answer: "False")
+                            }
+                            .buttonStyle(QQPrimaryButtonStyle())
                         } else {
-//                            Button("Finish") {
-//                                withAnimation {
-//                                    isShowingThisView.toggle()
-//                                }
-//                            }
-//                            .buttonStyle(QQPrimaryButtonStyle())
-//                            .padding(.leading, -50.0)
-//
-//                            TODO
-//                            NavigationLink to ScoreView
+                            let allAnswers = questions[index].incorrect_answers + [questions[index].correct_answer]
+                            
+                            ForEach(allAnswers.shuffled(), id: \.self) {answer in
+                                Button(answer) {
+                                    nextQuestion(answer: answer)
+                                }
+                                .buttonStyle(QQPrimaryButtonStyle())
+                            }
                         }
                     }
+                    
+                    Spacer()
+                    Spacer()
+                    
+                    Button("Exit") {
+                        withAnimation {
+                            isShowingThisView.toggle()
+                            
+//                            TODO
+//                            NavigationLink to StartPage
+                        }
+                    }
+                    .buttonStyle(QQSecondaryButtonStyle())
                     .padding(.bottom, 30.0)
                 }
-                .navigationTitle("Game Playing")
             }
         }
     }
@@ -117,6 +134,20 @@ struct GamePlayView: View {
         }
         
         task.resume()
+    }
+    
+    func nextQuestion(answer: String) {
+        if answer == questions[index].correct_answer {
+            score += 1
+        }
+
+        guard index < questions.count - 1 else {
+//           TODO
+//           NavigationLink to ScoreView
+            return
+        }
+        
+        index += 1
     }
 }
 
