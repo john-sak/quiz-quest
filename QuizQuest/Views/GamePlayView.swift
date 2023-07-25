@@ -29,6 +29,22 @@ struct GamePlayView: View {
         let question: String
         let correct_answer: String
         let incorrect_answers: [String]
+        
+        init(from decoder: Decoder) throws {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            
+            self.category = try container.decode(String.self, forKey: .category)
+            self.type = try container.decode(String.self, forKey: .type)
+            self.difficulty = try container.decode(String.self, forKey: .difficulty)
+            
+            self.question = try container.decode(String.self, forKey: .question).htmlDecoded
+            self.correct_answer = try container.decode(String.self, forKey: .correct_answer).htmlDecoded
+            
+            let raw_incorrect_answers = try container.decode([String].self, forKey: .incorrect_answers)
+            self.incorrect_answers = raw_incorrect_answers.map({
+                $0.htmlDecoded
+            })
+        }
     }
     
     @State private var index = 0
@@ -147,6 +163,25 @@ struct GamePlayView: View {
         }
         
         index += 1
+    }
+}
+
+extension String {
+    var htmlDecoded: String {
+        guard let data = data(using: .utf8) else {
+            return self
+        }
+        
+        let options: [NSAttributedString.DocumentReadingOptionKey: Any] = [
+            .documentType: NSAttributedString.DocumentType.html,
+            .characterEncoding: String.Encoding.utf8.rawValue
+        ]
+        
+        guard let attributedString = try? NSAttributedString(data: data, options: options, documentAttributes: nil) else {
+            return self
+        }
+        
+        return attributedString.string
     }
 }
 
