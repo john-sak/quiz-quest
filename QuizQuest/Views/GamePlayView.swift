@@ -89,7 +89,6 @@ struct GamePlayView: View {
                     Button("Exit") {
                         withAnimation {
                             isShowingThisView.toggle()
-                            
 //                            TODO
 //                            NavigationLink to StartPage
                         }
