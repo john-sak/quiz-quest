@@ -29,10 +29,29 @@ struct GamePlayView: View {
         let question: String
         let correct_answer: String
         let incorrect_answers: [String]
+        
+        init(from decoder: Decoder) throws {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            
+            self.category = try container.decode(String.self, forKey: .category)
+            self.type = try container.decode(String.self, forKey: .type)
+            self.difficulty = try container.decode(String.self, forKey: .difficulty)
+            
+            self.question = try container.decode(String.self, forKey: .question).htmlDecoded
+            self.correct_answer = try container.decode(String.self, forKey: .correct_answer).htmlDecoded
+            
+            let raw_incorrect_answers = try container.decode([String].self, forKey: .incorrect_answers)
+            self.incorrect_answers = raw_incorrect_answers.map({
+                $0.htmlDecoded
+            })
+        }
     }
     
     @State private var index = 0
     @State private var questions: [QQQuestion] = []
+    
+    @State private var score = 0
+    @State private var userAnswer = ""
     
     var body: some View {
         if isLoading {
@@ -43,16 +62,63 @@ struct GamePlayView: View {
         } else {
             NavigationView {
                 VStack{
-                    Text("\(questions.count)")
+                    ProgressView(value: Double(index + 1), total: Double(questions.count))
+                        .progressViewStyle(LinearProgressViewStyle())
+                        .padding(.top, 50.0)
+                        .padding(.horizontal, 50.0)
+
+                    Spacer()
+                    
+                    Text(questions[index].question)
+                        .fontWeight(.bold)
+                        .multilineTextAlignment(.center)
+                        .padding()
+
+                    Spacer()
+                    
+                    VStack {
+                        if questions[index].type == "boolean" {
+                            Button("True") {
+                                nextQuestion(answer: "True")
+                            }
+                            .buttonStyle(QQPrimaryButtonStyle())
+                            
+                            Button("False") {
+                                nextQuestion(answer: "False")
+                            }
+                            .buttonStyle(QQPrimaryButtonStyle())
+                        } else {
+                            let allAnswers = questions[index].incorrect_answers + [questions[index].correct_answer]
+                            
+                            ForEach(allAnswers.shuffled(), id: \.self) {answer in
+                                Button(answer) {
+                                    nextQuestion(answer: answer)
+                                }
+                                .buttonStyle(QQPrimaryButtonStyle())
+                            }
+                        }
+                    }
+                    
+                    Spacer()
+                    Spacer()
+                    
+                    Button("Exit") {
+                        withAnimation {
+                            isShowingThisView.toggle()
+//                            TODO
+//                            NavigationLink to StartPage
+                        }
+                    }
+                    .buttonStyle(QQSecondaryButtonStyle())
+                    .padding(.bottom, 30.0)
                 }
-                .navigationTitle("Game Playing")
             }
         }
     }
     
     func fetchQuestions() {
         let options: String = "?amount=" + String(ammountAPI) + (catAPI.isEmpty ? "" : "&category=" + catAPI) + (diffAPI.isEmpty ? "" : "&difficulty=" + diffAPI) + (ansTypeAPI.isEmpty ? "" : "&type=" + ansTypeAPI)
-        print(options)
+
         guard let apiURL = URL(string: "https://opentdb.com/api.php" + options) else {
             print("Error hitting API")
             return
@@ -75,6 +141,7 @@ struct GamePlayView: View {
 
                 DispatchQueue.main.async {
                     self.questions = decodeQuestions.results
+                    self.isLoading.toggle()
                 }
             } catch {
                 print("Error decoding JSON file: \(error)")
@@ -82,7 +149,39 @@ struct GamePlayView: View {
         }
         
         task.resume()
-        isLoading.toggle()
+    }
+    
+    func nextQuestion(answer: String) {
+        if answer == questions[index].correct_answer {
+            score += 1
+        }
+
+        guard index < questions.count - 1 else {
+//           TODO
+//           NavigationLink to ScoreView
+            return
+        }
+        
+        index += 1
+    }
+}
+
+extension String {
+    var htmlDecoded: String {
+        guard let data = data(using: .utf8) else {
+            return self
+        }
+        
+        let options: [NSAttributedString.DocumentReadingOptionKey: Any] = [
+            .documentType: NSAttributedString.DocumentType.html,
+            .characterEncoding: String.Encoding.utf8.rawValue
+        ]
+        
+        guard let attributedString = try? NSAttributedString(data: data, options: options, documentAttributes: nil) else {
+            return self
+        }
+        
+        return attributedString.string
     }
 }
 

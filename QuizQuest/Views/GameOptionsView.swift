@@ -38,7 +38,7 @@ struct GameOptionsView: View {
         if isLoading {
             LoadingView()
                 .onAppear {
-                    fetchOptions()
+                    fetchCategories()
                 }
         } else {
             VStack {
@@ -117,18 +117,13 @@ struct GameOptionsView: View {
                     .buttonStyle(QQPrimaryButtonStyle())
                     .padding(.leading, -50.0)
                 }
-                .padding(.bottom, 50.0)
+                .padding(.bottom, 30.0)
             }
             .navigationTitle("Customize Game")
             .fullScreenCover(isPresented: $isShowingGamePlayView, content: {
                 GamePlayView(isShowingThisView: $isShowingGamePlayView, catAPI: mapCategory(categoryID: selectedCategoryID), diffAPI: mapDifficulty(difficulty: selectedDifficulty), ansTypeAPI: mapAnswerType(answerType: selectedAnswerType), ammountAPI: values[selectedIndex])
             })
         }
-    }
-    
-    func fetchOptions() {
-        fetchCategories()
-        isLoading.toggle()
     }
     
     func fetchCategories() {
@@ -157,6 +152,7 @@ struct GameOptionsView: View {
                 let updatedResponse = CategoryResponse(trivia_categories: allCategories)
                 DispatchQueue.main.async {
                     self.categories = updatedResponse.trivia_categories
+                    self.isLoading.toggle()
                 }
             } catch {
                 print("Error decoding JSON file: \(error)")

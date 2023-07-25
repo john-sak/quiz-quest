@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-let buttonCornerRadius: CGFloat = 8
+let buttonCornerRadius: CGFloat = 10
 
 let paddingLevel1: Double = 20
 let paddingLevel2: Double = 50
@@ -34,6 +34,7 @@ struct QQPrimaryButtonStyle: ButtonStyle {
             )
             .padding(.horizontal, paddingLevel2)
             .buttonStyle(.bordered)
+            .multilineTextAlignment(.center)
     }
 }
 
@@ -48,5 +49,6 @@ struct QQSecondaryButtonStyle: ButtonStyle {
             .cornerRadius(buttonCornerRadius)
             .padding(.horizontal, paddingLevel2)
             .buttonStyle(.bordered)
+            .multilineTextAlignment(.center)
     }
 }
