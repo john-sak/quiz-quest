@@ -38,7 +38,7 @@ struct GameOptionsView: View {
         if isLoading {
             LoadingView()
                 .onAppear {
-                    fetchOptions()
+                    fetchCategories()
                 }
         } else {
             VStack {
@@ -126,11 +126,6 @@ struct GameOptionsView: View {
         }
     }
     
-    func fetchOptions() {
-        fetchCategories()
-        isLoading.toggle()
-    }
-    
     func fetchCategories() {
         guard let apiURL = URL(string: "https://opentdb.com/api_category.php") else {
             print("Error hitting API")
@@ -157,6 +152,7 @@ struct GameOptionsView: View {
                 let updatedResponse = CategoryResponse(trivia_categories: allCategories)
                 DispatchQueue.main.async {
                     self.categories = updatedResponse.trivia_categories
+                    self.isLoading.toggle()
                 }
             } catch {
                 print("Error decoding JSON file: \(error)")

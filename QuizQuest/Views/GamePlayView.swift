@@ -47,6 +47,7 @@ struct GamePlayView: View {
                     
 //                    TODO
 //                    present questions
+                    Text(questions[index].question)
                     
                     HStack {
                         Button("Exit") {
@@ -108,6 +109,7 @@ struct GamePlayView: View {
 
                 DispatchQueue.main.async {
                     self.questions = decodeQuestions.results
+                    self.isLoading.toggle()
                 }
             } catch {
                 print("Error decoding JSON file: \(error)")
@@ -115,7 +117,6 @@ struct GamePlayView: View {
         }
         
         task.resume()
-        isLoading.toggle()
     }
 }
 
